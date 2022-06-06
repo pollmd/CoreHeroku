@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using CoreHeroku.Data;
 
 namespace CoreHeroku
 {
@@ -24,6 +26,12 @@ namespace CoreHeroku
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            //services.AddDbContext<CoreHerokuContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("CoreHerokuContext")));
+
+            services.AddDbContext<CoreHerokuContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("CoreHerokuContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,9 +55,16 @@ namespace CoreHeroku
 
             app.UseAuthorization();
 
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapRazorPages();
+            //});
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Persoanas}/{action=Index}/{id?}");
             });
         }
     }
