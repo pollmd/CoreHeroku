@@ -10,7 +10,7 @@ namespace CoreHeroku.Data
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-           => optionsBuilder.UseNpgsql("Host=ec2-34-247-172-149.eu-west-1.compute.amazonaws;Port=5432;Database=d2uank537t415i;Username=vyeqybqgfugiro;Password=77715ef26ddf8dcda0fb591cdbac499de8cb9ca7c1ff405654273f40203985e9");
+           => optionsBuilder.UseNpgsql("Host=ec2-34-247-172-149.eu-west-1.compute.amazonaws.com;Port=5432;Database=d2uank537t415i;Username=vyeqybqgfugiro;Password=77715ef26ddf8dcda0fb591cdbac499de8cb9ca7c1ff405654273f40203985e9");
         // => optionsBuilder.UseNpgsql("Host=my_host;Database=my_db;Username=my_user;Password=my_pw");
         //  => optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Port=5432;Username=postgres;Password=1");
 
