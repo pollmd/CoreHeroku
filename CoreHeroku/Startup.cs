@@ -62,6 +62,8 @@ namespace CoreHeroku
 
             app.UseEndpoints(endpoints =>
             {
+
+                endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Persoanas}/{action=Index}/{id?}");
